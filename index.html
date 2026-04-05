@@ -91,29 +91,30 @@ h2 em { font-style: italic; color: var(--rust); }
 }
 
 /* photo column */
-.about-photo {
-  position: relative;
+.about-photo{
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  padding:40px;
+  background:var(--sand);
+  border-right:var(--rule);
+}
+
+.photo-frame{
+  width:320px;
+  height:420px;
   overflow: hidden;
-  background: var(--sand);
-  border-right: var(--rule);
-  aspect-ratio: 3 / 4;
+  border:1px solid #d8d2c6;
 }
-.about-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  
+
+.photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
-.photo-placeholder {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 1rem; color: var(--stone); text-align: center; padding: 2rem;
-}
-.photo-placeholder svg { opacity: 0.3; }
-.photo-placeholder p {
-  font-size: 0.72rem; letter-spacing: 0.1em;
-  text-transform: uppercase; line-height: 1.9; color: var(--stone);
-}
+
 
 /* bio column */
 .about-bio {
@@ -355,17 +356,11 @@ footer a:hover { color: var(--cream); }
   <div class="about-wrap">
 
     <!-- LEFT: your photo -->
-    <div class="about-photo">
-      <!--
-        ADD YOUR PHOTO:
-        1. Upload your image to the same folder as index.html (e.g. "photo.jpg")
-        2. Set src="photo.jpg" below
-        3. Delete the .photo-placeholder div once your image shows
-        Recommended: portrait, min 700×900px
-      -->
-      <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam">
-          
-    </div>
+   <div class="about-photo">
+  <div class="photo-frame">
+    <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam">
+  </div>
+</div>
 
     <!-- RIGHT: name, bio, skills, links -->
     <div class="about-bio">
