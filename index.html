@@ -91,27 +91,18 @@ h2 em { font-style: italic; color: var(--rust); }
 }
 
 /* photo column */
-.about-photo{
+.about-photo {
   display: flex;
   justify-content: center;
   align-items:flex-start;
-  padding:40px;
+  padding:60px 40px;
   background:var(--sand);
   border-right:var(--rule);
 }
 
-.photo-frame{
+.about-photo img{
   width:320px;
-  height:420px;
-  overflow: hidden;
-  border:1px solid #d8d2c6;
-}
-
-.photo-frame img{
-  width:100%;
-  height:100%;
-  object-fit: cover;
-  object-position: center;
+  height: auto;
   display: block;
 }
 
@@ -357,10 +348,8 @@ footer a:hover { color: var(--cream); }
 
     <!-- LEFT: your photo -->
    <div class="about-photo">
-  <div class="photo-frame">
     <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam">
   </div>
-</div>
 
     <!-- RIGHT: name, bio, skills, links -->
     <div class="about-bio">
@@ -405,20 +394,6 @@ footer a:hover { color: var(--cream); }
         <a href="mailto:abdulsalammaryam381@gmail.com">Email me</a>
         <a href="https://github.com/Folasewa" target="_blank">GitHub</a>
         <a href="#projects">View Projects ↓</a>
-      </div>
-      <div class="bio-stats">
-        <div>
-          <span class="stat-num">6+</span>
-          <div class="stat-label">Years in Research</div>
-        </div>
-        <div>
-          <span class="stat-num">2</span>
-          <div class="stat-label">Conf. Presentations</div>
-        </div>
-        <div>
-          <span class="stat-num">3</span>
-          <div class="stat-label">Countries Active</div>
-        </div>
       </div>
     </div>
 
