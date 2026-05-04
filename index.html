@@ -80,7 +80,7 @@ h2 em { font-style: italic; color: var(--rust); }
 
 /* ── ABOUT (hero panel) ── */
 #about {
-  padding-top: 62px; /* nav offset */
+  padding-top: 62px;
   background: var(--paper);
 }
 .about-wrap {
@@ -90,7 +90,6 @@ h2 em { font-style: italic; color: var(--rust); }
   min-height: calc(100vh - 62px);
 }
 
-/* photo column */
 .about-photo {
   position: relative;
   overflow: hidden;
@@ -108,8 +107,6 @@ h2 em { font-style: italic; color: var(--rust); }
   display: block;
 }
 
-
-/* bio column */
 .about-bio {
   padding: 5rem 5rem 4.5rem;
   display: flex; flex-direction: column; justify-content: center;
@@ -137,7 +134,6 @@ h1 em { font-style: italic; color: var(--rust); }
 .bio-text { font-size: 1rem; color: var(--ink2); line-height: 1.9; max-width: 480px; }
 .bio-text p + p { margin-top: 1rem; }
 
-/* skills inside about */
 .bio-skills { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
 .skill-row {}
 .skill-row-label {
@@ -175,7 +171,6 @@ h1 em { font-style: italic; color: var(--rust); }
 
 /* ── EXPERIENCE ── */
 #experience { background: var(--cream); }
-/* ADD NEW EXPERIENCE: copy one .exp-row block */
 .exp-row {
   display: grid; grid-template-columns: 210px 1fr; gap: 4rem;
   padding: 2.5rem 0; border-top: var(--rule);
@@ -196,7 +191,6 @@ h1 em { font-style: italic; color: var(--rust); }
 
 /* ── PROJECTS ── */
 #projects { background: var(--paper); }
-/* ADD NEW PROJECT: copy one .proj-item block */
 .proj-grid {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 1px; background: var(--sand);
@@ -234,6 +228,15 @@ h1 em { font-style: italic; color: var(--rust); }
   transition: gap 0.2s;
 }
 .proj-link:hover { gap: 0.7rem; }
+
+/* Community badge */
+.proj-community {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--rust); border: 1px solid var(--rust);
+  padding: 0.15rem 0.55rem; border-radius: 2px;
+  margin-bottom: 0.9rem; width: fit-content;
+}
 
 /* ── EDUCATION ── */
 #education { background: var(--cream); }
@@ -336,37 +339,23 @@ footer a:hover { color: var(--cream); }
     <li><a href="#education">Education</a></li>
     <li><a href="#recognition">Recognition</a></li>
   </ul>
-  <!-- Replace href="#" with your hosted CV PDF URL -->
   <a href="#" class="nav-cv" download="Folasewa_Abdulsalam_CV.pdf">Download CV</a>
 </nav>
 
-
-<!-- ════════════════════════════════════════
-     ABOUT  —  the very first thing people see
-     Photo on the left, full bio on the right
-     ════════════════════════════════════════ -->
 <section class="panel" id="about">
   <div class="about-wrap">
-
-    <!-- LEFT: your photo -->
-   <div class="about-photo">
-    <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam">
-  </div>
-
-    <!-- RIGHT: name, bio, skills, links -->
+    <div class="about-photo">
+      <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam">
+    </div>
     <div class="about-bio">
       <div class="bio-eyebrow">NeuroML Researcher</div>
-
       <h1>Folasewa<br><em>Maryam</em><br>Abdulsalam</h1>
       <p class="bio-subtitle">Brain Signal Analysis &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Neurostimulation</p>
-
       <div class="bio-text">
         <p>I am an Erasmus Mundus Joint Master's student in Neuroscience and Data Science, with a background in Computer Science and Mathematics. I work at the intersection of neuroscience, computational modelling, and machine learning, decoding brain signals and exploring non-invasive ways to modulate them.</p>
-        <p> I am passionate about bridging machine learning and neuroscience to better understand the brain and develop meaningful applications. My interests lie in AI, neural data analysis, and brain-computer interfaces.</p>
+        <p>I am passionate about bridging machine learning and neuroscience to better understand the brain and develop meaningful applications. My interests lie in AI, neural data analysis, and brain-computer interfaces.</p>
         <p>I am open to research and job opportunities at the intersection of brain and data science, whether in academia or industry, and eager to contribute to teams working where neuroscience meets machine learning.</p>
       </div>
-
-      <!-- Skills woven right into the about section -->
       <div class="bio-skills">
         <div class="skill-row">
           <div class="skill-row-label">Languages & Frameworks</div>
@@ -390,22 +379,15 @@ footer a:hover { color: var(--cream); }
           </div>
         </div>
       </div>
-
       <div class="bio-links">
         <a href="mailto:abdulsalammaryam381@gmail.com">Email me</a>
         <a href="https://github.com/Folasewa" target="_blank">GitHub</a>
         <a href="#projects">View Projects ↓</a>
       </div>
     </div>
-
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     EXPERIENCE
-     ADD NEW ROLE: duplicate one .exp-row block
-     ════════════════════════════════════════ -->
 <section class="panel" id="experience">
   <div class="inner">
     <div class="section-label">Experience</div>
@@ -465,11 +447,6 @@ footer a:hover { color: var(--cream); }
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     PROJECTS
-     ADD NEW PROJECT: duplicate one .proj-item block, update num/title/desc/tags/href
-     ════════════════════════════════════════ -->
 <section class="panel" id="projects">
   <div class="inner inner-wide">
     <div class="section-label">Projects</div>
@@ -485,7 +462,6 @@ footer a:hover { color: var(--cream); }
           <div class="proj-tags-row">
             <span class="proj-tag">EEG</span><span class="proj-tag">XAI</span><span class="proj-tag">Mar 2026</span>
           </div>
-          <!-- UPDATE: replace href="#" with your GitHub/demo URL -->
           <a href="https://github.com/Folasewa/EEG-Based_Mental_Workload_Classifier/tree/main" class="proj-link" target="_blank">View ↗</a>
         </div>
       </div>
@@ -526,14 +502,34 @@ footer a:hover { color: var(--cream); }
         </div>
       </div>
 
+      <div class="proj-item fade">
+        <div class="proj-num">05</div>
+        <div class="proj-title">MamaPEARL — Preeclampsia Risk Monitor</div>
+        <div class="proj-community">◆ Community Initiative</div>
+        <p class="proj-desc">Co-created a mobile app for real-time monitoring of pregnant women at risk of preeclampsia, targeting women in low-resource communities with limited access to prenatal care. Designed with a roadmap toward a wearable form factor for easy mobility and comfort. Led the team from concept to prototype, translating a personal curiosity about human pain modulation into a tangible health solution.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">Mobile Health</span><span class="proj-tag">Women's Health</span><span class="proj-tag">Wearables</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item fade">
+        <div class="proj-num">06</div>
+        <div class="proj-title">PERKS — AI Emergency Routing System</div>
+        <div class="proj-community">◆ Community Initiative</div>
+        <p class="proj-desc">Co-developed an AI SOS-based mobile app that intelligently routes patients to the nearest available hospital based on their specific emergency type. Built to reduce unnecessary wait times when patients are searching for appropriate care in critical moments. Developed in collaboration with a medical doctor colleague; the solution is currently in active development with plans for market launch.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">AI</span><span class="proj-tag">Emergency Care</span><span class="proj-tag">Mobile App</span><span class="proj-tag">In Development</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     EDUCATION
-     ════════════════════════════════════════ -->
 <section class="panel" id="education">
   <div class="inner">
     <div class="section-label">Education</div>
@@ -568,10 +564,6 @@ footer a:hover { color: var(--cream); }
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     CONFERENCES & AWARDS
-     ════════════════════════════════════════ -->
 <section class="panel" id="recognition">
   <div class="inner">
     <div class="section-label">Recognition</div>
@@ -627,11 +619,6 @@ footer a:hover { color: var(--cream); }
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════
-     CV DOWNLOAD
-     Replace href="#" with your raw GitHub PDF URL
-     ════════════════════════════════════════ -->
 <section class="panel" id="cv-section">
   <div class="inner">
     <div class="cv-left fade">
@@ -647,7 +634,6 @@ footer a:hover { color: var(--cream); }
     </div>
   </div>
 </section>
-
 
 <footer>
   <span>© 2026 Folasewa Maryam Abdulsalam</span>
