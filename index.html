@@ -4,313 +4,436 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Folasewa Maryam Abdulsalam</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --bg: #f6f7fb;
-  --surface: #ffffff;
-  --surface-2: #f1f3f9;
-
-  --text: #1f2430;
-  --text-soft: #5a6475;
-
-  --primary: #3b5bdb;
-  --accent: #2f9e44;
-
-  --border: rgba(31,36,48,0.12);
-
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'Jost', sans-serif;
-
-  --max: 1100px;
-  --radius: 14px;
+  --navy:       #0d1b2e;
+  --navy2:      #162640;
+  --navy3:      #1e3355;
+  --slate:      #2e4a6e;
+  --mist:       #e8edf5;
+  --paper:      #f2f5f9;
+  --white:      #ffffff;
+  --gold:       #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-pale:  #f5edda;
+  --text:       #0d1b2e;
+  --text2:      #3a4f6b;
+  --text3:      #6a829a;
+  --serif:      'Playfair Display', Georgia, serif;
+  --sans:       'DM Sans', sans-serif;
+  --max:        1100px;
+  --rule:       1px solid rgba(13,27,46,0.1);
+  --rule-light: 1px solid rgba(255,255,255,0.12);
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
-  background: var(--bg);
+  background: var(--paper);
   color: var(--text);
   font-family: var(--sans);
+  font-weight: 300;
   line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ───────── NAV ───────── */
+/* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 2.5rem;
-  background: rgba(255,255,255,0.88);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(13,27,46,0.96);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
+  border-bottom: var(--rule-light);
 }
-
 .nav-logo {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: var(--text);
+  font-family: var(--serif); font-size: 1rem; font-weight: 400;
+  letter-spacing: 0.04em; color: var(--white); text-decoration: none;
 }
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
+.nav-logo span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.2rem; list-style: none; }
 .nav-links a {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-soft);
-  text-decoration: none;
+  font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s;
 }
-
-.nav-links a:hover {
-  color: var(--primary);
-}
-
+.nav-links a:hover { color: var(--gold-light); }
 .nav-cv {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--primary);
-  text-decoration: none;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+  background: var(--gold); padding: 0.45rem 1.1rem; border-radius: 2px;
+  transition: background 0.2s;
 }
+.nav-cv:hover { background: var(--gold-light); }
 
-/* ───────── LAYOUT ───────── */
-.panel { width: 100%; }
-
-.inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 6rem 2.5rem;
+/* hamburger (mobile) */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
 }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.25s; }
+.nav-mobile-menu {
+  display: none; position: fixed; inset: 0; top: 56px;
+  background: var(--navy); z-index: 190;
+  flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+}
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu a {
+  font-size: 1.1rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;
+}
+.nav-mobile-menu a:hover { color: var(--gold); }
+
+/* ── SHARED ── */
+.panel { width: 100%; border-bottom: var(--rule); }
+.inner { max-width: var(--max); margin: 0 auto; padding: 6rem 3rem; }
+.inner-wide { max-width: 100%; padding-left: 5%; padding-right: 5%; }
 
 .section-label {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  margin-bottom: 2.5rem;
+  font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2.8rem;
+  display: flex; align-items: center; gap: 1rem;
 }
+.section-label::before { content: ''; flex: 0 0 20px; height: 1px; background: var(--gold); }
 
-/* ───────── ABOUT ───────── */
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400; line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--text); margin-bottom: 2.4rem;
+}
+h2 em { font-style: italic; color: var(--gold); }
+
+/* ── ABOUT (hero panel) ── */
 #about {
-  padding-top: 80px;
-  background: var(--surface);
+  padding-top: 56px;
+  background: var(--white);
 }
 
-.about-wrap {
+.about-inner {
+  max-width: var(--max); margin: 0 auto;
+  padding: 5rem 3rem 5.5rem;
   display: grid;
-  grid-template-columns: 420px 1fr;
-  min-height: 100vh;
+  grid-template-columns: 300px 1fr;
+  gap: 5rem;
+  align-items: start;
 }
 
-/* FIXED: circular CV-style image */
-.about-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  padding: 3rem;
+/* ── CIRCULAR PHOTO (CV style) ── */
+.about-photo-col {
+  display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  position: sticky; top: 80px;
 }
 
-.about-photo img {
-  width: 260px;
-  height: 260px;
+.profile-ring {
+  position: relative;
+  width: 220px; height: 220px;
+}
+.profile-ring::before {
+  content: '';
+  position: absolute; inset: -5px;
   border-radius: 50%;
-  object-fit: cover;
-  border: 6px solid var(--surface-2);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  background: conic-gradient(var(--gold) 0deg 200deg, transparent 200deg);
+  animation: spin 8s linear infinite;
 }
+@keyframes spin { to { transform: rotate(360deg); } }
 
-/* bio */
-.about-bio {
-  padding: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.profile-img-wrap {
+  position: absolute; inset: 4px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--mist);
+  z-index: 1;
 }
+.profile-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 10%;
+  display: block;
+}
+.profile-img-wrap .placeholder-icon {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--navy2), var(--slate));
+}
+.placeholder-icon svg { opacity: 0.35; }
 
+.photo-status {
+  text-align: center;
+}
+.photo-status-dot {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3);
+}
+.photo-status-dot::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #4caf7d; display: inline-block;
+  box-shadow: 0 0 0 2px rgba(76,175,125,0.25);
+}
+.photo-links {
+  display: flex; flex-direction: column; gap: 0.6rem; width: 100%;
+}
+.photo-link {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.55rem 0; border-radius: 3px; text-decoration: none;
+  transition: all 0.2s;
+}
+.photo-link-email {
+  background: var(--navy); color: var(--white);
+}
+.photo-link-email:hover { background: var(--navy2); }
+.photo-link-github {
+  border: 1px solid var(--rule); color: var(--text2);
+}
+.photo-link-github:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── BIO COLUMN ── */
 .bio-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--primary);
-  margin-bottom: 1rem;
+  font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.8rem;
 }
+.bio-eyebrow::after { content: ''; flex: 0 0 24px; height: 1px; background: var(--gold); }
 
 h1 {
   font-family: var(--serif);
-  font-size: 3.6rem;
-  line-height: 1.05;
+  font-size: clamp(2.6rem, 4vw, 4rem);
+  font-weight: 400; line-height: 1.06; letter-spacing: -0.01em;
+  color: var(--text); margin-bottom: 0.6rem;
 }
-
-h1 em { color: var(--primary); }
+h1 em { font-style: italic; color: var(--gold); }
 
 .bio-subtitle {
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  margin: 1.2rem 0 2rem;
+  font-size: 0.73rem; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 2rem;
 }
 
-.bio-text {
-  color: var(--text-soft);
-  max-width: 560px;
+.bio-divider {
+  width: 40px; height: 2px;
+  background: var(--gold); margin-bottom: 2rem;
 }
 
-/* ───────── EXPERIENCE ───────── */
+.bio-text { font-size: 0.97rem; color: var(--text2); line-height: 1.9; max-width: 520px; }
+.bio-text p + p { margin-top: 1rem; }
+
+.bio-skills { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
+.skill-row-label {
+  font-size: 0.63rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text3); margin-bottom: 0.5rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag {
+  font-size: 0.74rem; padding: 0.22rem 0.7rem;
+  border: 1px solid rgba(13,27,46,0.12); border-radius: 3px;
+  color: var(--text2); background: var(--paper); letter-spacing: 0.03em;
+  transition: border-color 0.2s, color 0.2s;
+}
+.tag:hover { border-color: var(--gold); color: var(--navy); }
+
+.bio-stats {
+  margin-top: 2.5rem; padding-top: 2rem; border-top: var(--rule);
+  display: flex; gap: 3rem; flex-wrap: wrap;
+}
+.stat-num {
+  font-family: var(--serif); font-size: 2.2rem; font-weight: 400;
+  line-height: 1; color: var(--navy); display: block;
+}
+.stat-label {
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text3); margin-top: 0.2rem;
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--paper); }
 .exp-row {
-  display: grid;
-  grid-template-columns: 210px 1fr;
-  gap: 3rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 200px 1fr; gap: 3.5rem;
+  padding: 2.5rem 0; border-top: var(--rule);
 }
-
+.exp-row:last-child { border-bottom: var(--rule); }
+.exp-date {
+  font-size: 0.74rem; color: var(--text3); padding-top: 0.25rem;
+  font-weight: 400;
+}
 .exp-role {
-  font-family: var(--serif);
-  font-size: 1.25rem;
+  font-family: var(--serif); font-size: 1.25rem;
+  font-weight: 400; line-height: 1.25; margin-bottom: 0.25rem; color: var(--navy);
 }
-
-/* ───────── PROJECTS (kept FULL LINKS) ───────── */
-#projects {
-  background: var(--bg);
+.exp-org {
+  font-size: 0.7rem; color: var(--gold);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.9rem;
 }
+.exp-bullets { padding-left: 1rem; }
+.exp-bullets li { font-size: 0.88rem; color: var(--text2); margin-bottom: 0.35rem; }
+.exp-bullets li::marker { color: var(--gold); }
 
+/* ── PROJECTS ── */
+#projects { background: var(--white); }
 .proj-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1.5px; background: rgba(13,27,46,0.08);
+  border: 1.5px solid rgba(13,27,46,0.08);
+  border-radius: 6px; overflow: hidden;
 }
-
 .proj-item {
-  background: var(--surface);
-  padding: 2rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: 0.2s ease;
+  background: var(--white); padding: 2.4rem;
+  display: flex; flex-direction: column;
+  transition: background 0.25s;
 }
-
-.proj-item:hover {
-  transform: translateY(-4px);
+.proj-item:hover { background: var(--paper); }
+.proj-num {
+  font-family: var(--serif); font-size: 0.82rem;
+  color: var(--gold); font-style: italic; margin-bottom: 0.8rem;
+  font-weight: 400;
 }
-
 .proj-title {
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--serif); font-size: 1.22rem;
+  font-weight: 400; line-height: 1.3; margin-bottom: 0.6rem; color: var(--navy);
 }
-
-.proj-desc {
-  color: var(--text-soft);
-  font-size: 0.9rem;
+.proj-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.78; flex: 1; }
+.proj-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 1.6rem; flex-wrap: wrap; gap: 0.5rem;
 }
-
+.proj-tags-row { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.proj-tag {
+  font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text3); border: 1px solid rgba(13,27,46,0.12);
+  padding: 0.12rem 0.48rem; border-radius: 2px;
+}
 .proj-link {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  display: flex; align-items: center; gap: 0.35rem;
+  transition: gap 0.2s, color 0.2s;
+}
+.proj-link:hover { gap: 0.6rem; color: var(--navy); }
+.proj-community {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid var(--gold);
+  padding: 0.12rem 0.52rem; border-radius: 2px;
+  margin-bottom: 0.8rem; width: fit-content;
 }
 
-/* ───────── EDUCATION ───────── */
+/* ── EDUCATION ── */
+#education { background: var(--paper); }
 .edu-row {
-  display: grid;
-  grid-template-columns: 200px 1fr auto;
-  gap: 2rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 200px 1fr auto; gap: 2.5rem;
+  align-items: baseline; padding: 1.8rem 0; border-top: var(--rule);
 }
+.edu-row:last-child { border-bottom: var(--rule); }
+.edu-period { font-size: 0.74rem; color: var(--text3); font-weight: 400; }
+.edu-degree { font-family: var(--serif); font-size: 1.18rem; font-weight: 400; color: var(--navy); }
+.edu-uni { font-size: 0.74rem; color: var(--text3); margin-top: 0.2rem; }
+.edu-gpa { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--gold); white-space: nowrap; }
 
-/* ───────── RECOGNITION (kept) ───────── */
-.recog-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+/* ── RECOGNITION ── */
+#recognition { background: var(--white); }
+.recog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+.recog-col h3 {
+  font-family: var(--serif); font-size: 1.45rem; font-weight: 400;
+  margin-bottom: 1.8rem; padding-bottom: 1.1rem; border-bottom: var(--rule);
+  color: var(--navy);
 }
-
-/* ───────── CV SECTION (kept) ───────── */
-#cv-section {
-  background: var(--text);
-  color: white;
+.recog-col h3 em { color: var(--gold); }
+.conf-item { padding: 1.1rem 0; border-bottom: var(--rule); }
+.conf-type {
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.3rem;
 }
+.conf-title { font-size: 0.88rem; color: var(--text2); line-height: 1.5; margin-bottom: 0.22rem; }
+.conf-venue { font-size: 0.74rem; color: var(--text3); }
+.award-item {
+  padding: 1.1rem 0; border-bottom: var(--rule);
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.award-marker {
+  font-size: 0.5rem; color: var(--gold); flex-shrink: 0; margin-top: 0.52rem;
+}
+.award-name { font-size: 0.88rem; color: var(--text2); line-height: 1.5; margin-bottom: 0.2rem; }
+.award-sub { font-size: 0.74rem; color: var(--text3); }
 
-/* ───────── FOOTER ───────── */
+/* ── CV SECTION ── */
+#cv-section { background: var(--navy); }
+#cv-section .inner {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 3rem; flex-wrap: wrap;
+}
+.cv-left h2 { color: var(--white); margin-bottom: 0.6rem; }
+.cv-left h2 em { color: var(--gold-light); }
+.cv-left p { font-size: 0.88rem; color: rgba(255,255,255,0.45); max-width: 480px; }
+.cv-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.85rem 2rem; font-family: var(--sans);
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  text-decoration: none; border-radius: 3px; border: none; cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn-primary { background: var(--gold); color: var(--navy); }
+.btn-primary:hover { background: var(--gold-light); }
+.btn-ghost { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); }
+.btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); }
+
+/* ── FOOTER ── */
 footer {
-  background: var(--text);
-  color: #aaa;
-  padding: 2rem 2.5rem;
-  display: flex;
-  justify-content: space-between;
+  background: var(--navy2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 1.8rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+  font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.35);
+}
+footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--gold-light); }
+.footer-links { display: flex; gap: 2rem; }
+
+/* ── REVEAL ── */
+.fade { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-cv { display: none; }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem 3.5rem;
+  }
+  .about-photo-col {
+    position: static;
+    flex-direction: row; flex-wrap: wrap; justify-content: center;
+    gap: 1.5rem;
+  }
+  .photo-links { flex-direction: row; width: auto; gap: 0.7rem; }
+  .photo-link { padding: 0.55rem 1.2rem; }
+
+  .exp-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .proj-grid { grid-template-columns: 1fr; }
+  .edu-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  .recog-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  #cv-section .inner { flex-direction: column; }
+  .inner { padding: 3.5rem 1.5rem; }
+  .inner-wide { padding: 3.5rem 1.5rem; }
+  footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; padding: 1.5rem; }
 }
 
-/* ───────── RESPONSIVE ───────── */
-@media (max-width: 900px) {
-
-  .about-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .about-photo {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-    padding: 4rem 2rem;
-  }
-
-  .about-photo img {
-    width: 180px;
-    height: 180px;
-  }
-
-  .about-bio {
-    padding: 2.5rem;
-  }
-
-  .proj-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .exp-row,
-  .edu-row,
-  .recog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 2.6rem;
-  }
-
-  .inner {
-    padding: 3.5rem 1.5rem;
-  }
+@media (max-width: 540px) {
+  .profile-ring { width: 180px; height: 180px; }
+  h1 { font-size: 2.4rem; }
+  .bio-stats { gap: 1.8rem; }
+  .proj-item { padding: 1.6rem; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#about">Folasewa M. Abdulsalam</a>
-
+  <a href="#about" class="nav-logo">Folasewa <span>M.</span> Abdulsalam</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
@@ -318,126 +441,373 @@ footer {
     <li><a href="#education">Education</a></li>
     <li><a href="#recognition">Recognition</a></li>
   </ul>
-
-  <a class="nav-cv" href="#">Download CV</a>
+  <a href="https://github.com/Folasewa/Portfolio_Website/blob/main/Industry_CV_Abdulsalam_Folasewa.pdf" class="nav-cv" download>Download CV</a>
+  <button class="hamburger" id="menuBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ABOUT -->
-<section id="about" class="panel">
-  <div class="about-wrap">
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#experience" onclick="closeMenu()">Experience</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#education" onclick="closeMenu()">Education</a>
+  <a href="#recognition" onclick="closeMenu()">Recognition</a>
+  <a href="https://github.com/Folasewa/Portfolio_Website/blob/main/Industry_CV_Abdulsalam_Folasewa.pdf" download style="color:var(--gold)">Download CV</a>
+</div>
 
-    <div class="about-photo">
-      <img src="Profile_head.jpeg" alt="profile">
+<!-- ── ABOUT ── -->
+<section class="panel" id="about">
+  <div class="about-inner">
+
+    <!-- Circular photo column -->
+    <div class="about-photo-col fade">
+      <div class="profile-ring">
+        <div class="profile-img-wrap">
+          <img src="Profile_head.jpeg" alt="Folasewa Maryam Abdulsalam"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="placeholder-icon" style="display:none">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="30" r="16" fill="white"/>
+              <ellipse cx="40" cy="68" rx="26" ry="16" fill="white"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="photo-status">
+        <span class="photo-status-dot">Open to opportunities</span>
+      </div>
+      <div class="photo-links">
+        <a href="mailto:abdulsalammaryam381@gmail.com" class="photo-link photo-link-email">Email me</a>
+        <a href="https://github.com/Folasewa" target="_blank" class="photo-link photo-link-github">GitHub</a>
+      </div>
     </div>
 
-    <div class="about-bio">
+    <!-- Bio column -->
+    <div class="about-bio fade">
       <div class="bio-eyebrow">NeuroML Researcher</div>
-
-      <h1>Folasewa <em>Maryam</em> Abdulsalam</h1>
-
-      <div class="bio-subtitle">
-        Brain Signal Analysis · Machine Learning · Neurostimulation
-      </div>
-
+      <h1>Folasewa<br><em>Maryam</em><br>Abdulsalam</h1>
+      <p class="bio-subtitle">Brain Signal Analysis &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Neurostimulation</p>
+      <div class="bio-divider"></div>
       <div class="bio-text">
-        <p>I am an Erasmus Mundus Joint Master’s student in Neuroscience and Data Science...</p>
-        <p>I focus on EEG, computational neuroscience, and brain-computer interfaces.</p>
+        <p>I am an Erasmus Mundus Joint Master's student in Neuroscience and Data Science, with a background in Computer Science and Mathematics. I work at the intersection of neuroscience, computational modelling, and machine learning, decoding brain signals and exploring non-invasive ways to modulate them.</p>
+        <p>I am passionate about bridging machine learning and neuroscience to better understand the brain and develop meaningful applications. My interests lie in AI, neural data analysis, and brain-computer interfaces.</p>
+        <p>I am open to research and job opportunities at the intersection of brain and data science, whether in academia or industry, and eager to contribute to teams working where neuroscience meets machine learning.</p>
+      </div>
+      <div class="bio-skills">
+        <div class="skill-row">
+          <div class="skill-row-label">Languages & Frameworks</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span><span class="tag">MATLAB</span>
+            <span class="tag">TensorFlow</span><span class="tag">PyTorch</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-row-label">Neuro & Signal Tools</div>
+          <div class="skill-tags">
+            <span class="tag">MNE-Python</span><span class="tag">EEGLAB</span>
+            <span class="tag">K-Plan</span><span class="tag">Localite</span><span class="tag">COMSOL</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-row-label">Domains</div>
+          <div class="skill-tags">
+            <span class="tag">EEG Analysis</span><span class="tag">Neurostimulation</span>
+            <span class="tag">FEM Modelling</span><span class="tag">Seizure Prediction</span><span class="tag">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+      <div class="bio-stats">
+        <div>
+          <span class="stat-num">4</span>
+          <div class="stat-label">Research Roles</div>
+        </div>
+        <div>
+          <span class="stat-num">6</span>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div>
+          <span class="stat-num">2</span>
+          <div class="stat-label">Conferences</div>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- EXPERIENCE (FULL KEPT) -->
-<section id="experience" class="panel">
+<!-- ── EXPERIENCE ── -->
+<section class="panel" id="experience">
   <div class="inner">
     <div class="section-label">Experience</div>
+    <h2>Where I've<br><em>done the work</em></h2>
 
-    <!-- FULL ORIGINAL CONTENT KEPT -->
-    <div class="exp-row">
-      <div>Feb 2026 – Present</div>
+    <div class="exp-row fade">
+      <div class="exp-date">Feb 2026 – Present</div>
       <div>
         <div class="exp-role">Graduate Researcher — EEG & Neurostimulation</div>
-        <div>Neuroimaging Center (NIC) · Mainz, Germany</div>
-        <ul>
-          <li>Designed TUS-EEG sleep experiment...</li>
-          <li>Simulated ultrasound propagation in K-Plan...</li>
+        <div class="exp-org">Neuroimaging Center (NIC) · Mainz, Germany</div>
+        <ul class="exp-bullets">
+          <li>Designed and set up a concurrent TUS-EEG sleep experiment to study thalamic sleep spindles in memory consolidation.</li>
+          <li>Simulated ultrasonic wave propagation through brain tissue in K-Plan to optimise thalamic targeting parameters.</li>
+          <li>Conducted a literature review on TUS parameter spaces and neuromodulatory effects on thalamocortical circuits.</li>
         </ul>
       </div>
     </div>
 
-    <!-- (All your other exp rows remain unchanged in your file) -->
+    <div class="exp-row fade">
+      <div class="exp-date">Dec 2024 – Jun 2025</div>
+      <div>
+        <div class="exp-role">Graduate Researcher — Computational Neuromodulation</div>
+        <div class="exp-org">Neuroengineering Lab, Bar-Ilan University · Israel</div>
+        <ul class="exp-bullets">
+          <li>Built 2D axisymmetric FEM models in COMSOL simulating microbubble–vessel interactions under focused ultrasound.</li>
+          <li>Integrated FSI and transient pressure acoustics to model vessel wall response across a parametric sweep.</li>
+          <li>Abstract accepted for poster presentation at AAIC 2025.</li>
+        </ul>
+      </div>
+    </div>
 
+    <div class="exp-row fade">
+      <div class="exp-date">Apr 2022 – Sep 2022</div>
+      <div>
+        <div class="exp-role">Research & Innovation Intern — Machine Learning</div>
+        <div class="exp-org">Data Science Nigeria · Lagos, Nigeria</div>
+        <ul class="exp-bullets">
+          <li>Performed systematic literature review on student engagement detection; delivered findings at IndabaX Nigeria.</li>
+          <li>Analysed call detail records for poverty mapping research.</li>
+          <li>Delivered Python for Data Analysis training in an AI for Kids educational programme.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-row fade">
+      <div class="exp-date">May 2020 – Sep 2020</div>
+      <div>
+        <div class="exp-role">Junior Data Scientist — Neural Signal Analysis</div>
+        <div class="exp-org">Korwave · Remote</div>
+        <ul class="exp-bullets">
+          <li>Analysed EEG recordings to build a seizure onset prediction pipeline for an epilepsy detection wearable.</li>
+          <li>Contributed to feature engineering and data labelling strategy for the ML model.</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS (ALL LINKS PRESERVED) -->
-<section id="projects" class="panel">
-  <div class="inner">
+<!-- ── PROJECTS ── -->
+<section class="panel" id="projects">
+  <div class="inner inner-wide">
     <div class="section-label">Projects</div>
+    <h2>Selected<br><em>research & builds</em></h2>
 
     <div class="proj-grid">
-
-      <div class="proj-item">
+      <div class="proj-item fade">
+        <div class="proj-num">01</div>
         <div class="proj-title">EEG-Based Mental Workload Classification</div>
-        <div class="proj-desc">Full EEG pipeline + SHAP analysis.</div>
-        <a class="proj-link" href="https://github.com/Folasewa/EEG-Based_Mental_Workload_Classifier/tree/main">View ↗</a>
+        <p class="proj-desc">Full EEG preprocessing and spectral feature extraction pipeline. Implemented NCA and Lasso feature selection to identify spectral biomarkers; applied SHAP explainability to quantify which frequency bands and electrode locations drive classification performance.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">EEG</span><span class="proj-tag">XAI</span><span class="proj-tag">Mar 2026</span>
+          </div>
+          <a href="https://github.com/Folasewa/EEG-Based_Mental_Workload_Classifier/tree/main" class="proj-link" target="_blank">View ↗</a>
+        </div>
       </div>
 
-      <div class="proj-item">
+      <div class="proj-item fade">
+        <div class="proj-num">02</div>
         <div class="proj-title">Seizure Onset Prediction</div>
-        <div class="proj-desc">8-band EEG filterbank replication of Shoeb et al.</div>
-        <a class="proj-link" href="https://github.com/Folasewa/Seizure_Onset_Prediction">View ↗</a>
+        <p class="proj-desc">Replicated the Shoeb et al. (2010) spectral feature pipeline using an 8-band filterbank (0.5–25 Hz) with 2-second sliding windows to capture preictal EEG dynamics. Benchmarked Logistic Regression, Random Forest, and SVM classifiers.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">Epilepsy</span><span class="proj-tag">EEG</span><span class="proj-tag">Mar–Apr 2025</span>
+          </div>
+          <a href="https://github.com/Folasewa/Seizure_Onset_Prediction" class="proj-link" target="_blank">View ↗</a>
+        </div>
       </div>
 
-      <!-- ALL OTHER PROJECTS PRESERVED IN YOUR ORIGINAL FILE -->
+      <div class="proj-item fade">
+        <div class="proj-num">03</div>
+        <div class="proj-title">EEG-Based Alzheimer's Disease Classification</div>
+        <p class="proj-desc">Replicated multi-domain EEG feature extraction (spectral, complexity, connectivity) from Zheng et al. (2023). Benchmarked SVM, Random Forest, and LightGBM classifiers to distinguish AD patients from healthy controls.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">Alzheimer's</span><span class="proj-tag">EEG</span><span class="proj-tag">Jan–Feb 2025</span>
+          </div>
+          <a href="https://github.com/Folasewa/Alzheimer_Disease_Classification_Via_EEG_Signal_Features" class="proj-link" target="_blank">View ↗</a>
+        </div>
+      </div>
 
+      <div class="proj-item fade">
+        <div class="proj-num">04</div>
+        <div class="proj-title">Student Engagement Detection System</div>
+        <p class="proj-desc">Undergraduate thesis: YOLOv8-based engagement detection system trained on the DAiSEE dataset, providing real-time student engagement feedback to lecturers during live sessions.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">YOLOv8</span><span class="proj-tag">Computer Vision</span><span class="proj-tag">Jan–Jun 2023</span>
+          </div>
+          <a href="https://github.com/Folasewa/EmoAI_facerecognition" class="proj-link" target="_blank">View ↗</a>
+        </div>
+      </div>
+
+      <div class="proj-item fade">
+        <div class="proj-num">05</div>
+        <div class="proj-title">MamaPEARL — Preeclampsia Risk Monitor</div>
+        <div class="proj-community">◆ Community Initiative</div>
+        <p class="proj-desc">Co-created a mobile app for real-time monitoring of pregnant women at risk of preeclampsia, targeting women in low-resource communities with limited access to prenatal care. Designed with a roadmap toward a wearable form factor for easy mobility and comfort. Led the team from concept to prototype, translating a personal curiosity about human pain modulation into a tangible health solution.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">Mobile Health</span><span class="proj-tag">Women's Health</span><span class="proj-tag">Wearables</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-item fade">
+        <div class="proj-num">06</div>
+        <div class="proj-title">PERKS — AI Emergency Routing System</div>
+        <div class="proj-community">◆ Community Initiative</div>
+        <p class="proj-desc">Co-developed an AI SOS-based mobile app that intelligently routes patients to the nearest available hospital based on their specific emergency type. Built to reduce unnecessary wait times when patients are searching for appropriate care in critical moments. Developed in collaboration with a medical doctor colleague; the solution is currently in active development with plans for market launch.</p>
+        <div class="proj-footer">
+          <div class="proj-tags-row">
+            <span class="proj-tag">AI</span><span class="proj-tag">Emergency Care</span><span class="proj-tag">Mobile App</span><span class="proj-tag">In Development</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- EDUCATION (FULL KEPT) -->
-<section id="education" class="panel">
+<!-- ── EDUCATION ── -->
+<section class="panel" id="education">
   <div class="inner">
     <div class="section-label">Education</div>
+    <h2>Academic<br><em>foundations</em></h2>
 
-    <div class="edu-row">
-      <div>Sep 2025 – Present</div>
-      <div>MSc Neuroscience — VU Amsterdam</div>
-      <div>8/10</div>
+    <div class="fade">
+      <div class="edu-row">
+        <div class="edu-period">Sep 2025 – Present</div>
+        <div>
+          <div class="edu-degree">MSc Neuroscience</div>
+          <div class="edu-uni">Vrije Universiteit Amsterdam · Netherlands</div>
+        </div>
+        <div class="edu-gpa">8 / 10</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-period">Oct 2024 – Aug 2025</div>
+        <div>
+          <div class="edu-degree">MSc Brain and Data Science</div>
+          <div class="edu-uni">Bar-Ilan University · Israel</div>
+        </div>
+        <div class="edu-gpa">94.44 / 100</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-period">Apr 2017 – Aug 2023</div>
+        <div>
+          <div class="edu-degree">BSc Computer Science &amp; Mathematics</div>
+          <div class="edu-uni">Obafemi Awolowo University · Nigeria &nbsp;·&nbsp; Top 2 / 200</div>
+        </div>
+        <div class="edu-gpa">4.65 / 5.0</div>
+      </div>
     </div>
-
-    <!-- ALL OTHER ROWS PRESERVED -->
-
   </div>
 </section>
 
-<!-- RECOGNITION (FULL KEPT) -->
-<section id="recognition" class="panel">
+<!-- ── RECOGNITION ── -->
+<section class="panel" id="recognition">
   <div class="inner">
     <div class="section-label">Recognition</div>
-
     <div class="recog-grid">
-      <!-- unchanged full content -->
+      <div class="recog-col fade">
+        <h3>Conference <em>Presentations</em></h3>
+        <div class="conf-item">
+          <div class="conf-type">Oral Presentation</div>
+          <div class="conf-title">AI-Augmented Simulation Framework for Optimizing Ultrasound Mediated BBB Opening</div>
+          <div class="conf-venue">Deep Learning Indaba · Rwanda · Aug 2025</div>
+        </div>
+        <div class="conf-item">
+          <div class="conf-type">Poster Presentation</div>
+          <div class="conf-title">Insilico Modeling of Acoustic Microbubble Dynamics for Safe Drug Delivery</div>
+          <div class="conf-venue">Alzheimer's Association International Conference (AAIC) · July 2025</div>
+        </div>
+      </div>
+
+      <div class="recog-col fade">
+        <h3>Awards &amp; <em>Scholarships</em></h3>
+        <div class="award-item">
+          <div class="award-marker">◆</div>
+          <div>
+            <div class="award-name">Erasmus Mundus Joint Master's Scholarship (EU)</div>
+            <div class="award-sub">1 of 15 worldwide · Oct 2024 – 2026</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-marker">◆</div>
+          <div>
+            <div class="award-name">First Runner-up — Code Cash Crop 3.0 Ag-Hackathon</div>
+            <div class="award-sub">Farmer e-commerce platform · Aug 2022</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-marker">◆</div>
+          <div>
+            <div class="award-name">Top 7 Finalist — AI4Energy Hackathon</div>
+            <div class="award-sub">ML carbon footprint forecasting app · Sep 2021</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-marker">◆</div>
+          <div>
+            <div class="award-name">MTN Foundation STEM Scholarship</div>
+            <div class="award-sub">Top 500 STEM students nationally · Oct 2019 – 2023</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CV + FOOTER KEPT SAME STRUCTURE -->
-<section id="cv-section" class="panel">
+<!-- ── CV ── -->
+<section class="panel" id="cv-section">
   <div class="inner">
-    <!-- unchanged -->
+    <div class="cv-left fade">
+      <h2>Take my CV<br><em>with you</em></h2>
+      <p> Updated regularly. Download and share freely with recruiters.</p>
+    </div>
+    <div class="cv-actions fade">
+      <a href="https://github.com/Folasewa/Portfolio_Website/blob/main/Industry_CV_Abdulsalam_Folasewa.pdf" download="Folasewa_Abdulsalam_CV.pdf" class="btn btn-primary">
+        <svg width="13" height="13" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+        Download CV
+      </a>
+      <a href="mailto:abdulsalammaryam381@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
   </div>
 </section>
 
 <footer>
   <span>© 2026 Folasewa Maryam Abdulsalam</span>
-  <div>
+  <div class="footer-links">
     <a href="mailto:abdulsalammaryam381@gmail.com">Email</a>
-    <a href="https://github.com/Folasewa">GitHub</a>
-    <a href="tel:+31616586040">Contact</a>
+    <a href="https://github.com/Folasewa" target="_blank">GitHub</a>
+    <a href="tel:+31616586040">+31 616 586 040</a>
   </div>
 </footer>
 
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  mobileMenu.classList.remove('open');
+}
+</script>
 </body>
 </html>
