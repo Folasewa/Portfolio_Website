@@ -490,9 +490,9 @@ footer a:hover { color: var(--gold-light); }
       <p class="bio-subtitle">Brain Signal Analysis &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Neurostimulation</p>
       <div class="bio-divider"></div>
       <div class="bio-text">
-        <p>I am an Erasmus Mundus Joint Master's student in Neuroscience and Data Science, with a background in Computer Science and Mathematics. I work at the intersection of neuroscience, computational modelling, and machine learning, decoding brain signals and exploring non-invasive ways to modulate them.</p>
+        <p>I am a neuroengineer building computational models of brain disorders and the signal-processing tools that make neural data useful. I am starting a Marie Curie PhD in bioengineering at the Czech Technical University, where I will develop multilevel models to predict deep brain stimulation outcomes in Parkinson's disease. This builds on my Erasmus Mundus joint master's in neuroscience and data science and a BSc in computer science and mathematics.</p>
         <p>I am passionate about bridging machine learning and neuroscience to better understand the brain and develop meaningful applications. My interests lie in AI, neural data analysis, and brain-computer interfaces.</p>
-        <p>I am open to research and job opportunities at the intersection of brain and data science, whether in academia or industry, and eager to contribute to teams working where neuroscience meets machine learning.</p>
+  
       </div>
       <div class="bio-skills">
         <div class="skill-row">
@@ -543,14 +543,14 @@ footer a:hover { color: var(--gold-light); }
     <h2>Where I've<br><em>done the work</em></h2>
 
     <div class="exp-row fade">
-      <div class="exp-date">Feb 2026 – Present</div>
+      <div class="exp-date">Feb 2026 – August 2026</div>
       <div>
         <div class="exp-role">Graduate Researcher — EEG & Neurostimulation</div>
         <div class="exp-org">Neuroimaging Center (NIC) · Mainz, Germany</div>
         <ul class="exp-bullets">
-          <li>Designed and set up a concurrent TUS-EEG sleep experiment to study thalamic sleep spindles in memory consolidation.</li>
-          <li>Simulated ultrasonic wave propagation through brain tissue in K-Plan to optimise thalamic targeting parameters.</li>
-          <li>Conducted a literature review on TUS parameter spaces and neuromodulatory effects on thalamocortical circuits.</li>
+          <li>Ran participant-specific acoustic simulations in k-plan to establish sonication depth and evaluated transducer positions by quantifying overlap between the acoustic focal volume and thalamic target.</li>
+          <li>Designed and set up a concurrent transcranial ultrasound stimulation (TUS)-EEG sleep experiment for 8 participants targeting the thalamic circuits for memory consolidation.</li>
+          <li>Built a pipeline using MNE and YASA to preprocess 64-channel overnight EEG, automate NREM sleep staging, and extract spindle features and spectral power across frequency bands, reducing the analysis workflow to a single script.</li>
         </ul>
       </div>
     </div>
@@ -561,9 +561,9 @@ footer a:hover { color: var(--gold-light); }
         <div class="exp-role">Graduate Researcher — Computational Neuromodulation</div>
         <div class="exp-org">Neuroengineering Lab, Bar-Ilan University · Israel</div>
         <ul class="exp-bullets">
-          <li>Built 2D axisymmetric FEM models in COMSOL simulating microbubble–vessel interactions under focused ultrasound.</li>
-          <li>Integrated FSI and transient pressure acoustics to model vessel wall response across a parametric sweep.</li>
-          <li>Abstract accepted for poster presentation at AAIC 2025.</li>
+          <li>Constructed 2D axisymmetric finite-element models in COMSOL Multiphysics, coupling fluid-structure interaction and pressure acoustics to simulate microbubble collapse near vessel walls under focused ultrasound.</li>
+          <li>Varied acoustic pressure and bubble radius across parameter configurations, visualizing pressure distribution and thermal output graphs to identify conditions that maximize blood-brain barrier opening</li>
+          <li>Presented preliminary findings at the Gonda Annual Brain Research Conference, 2025; abstract accepted for poster presentation at AAIC 2025.</li>
         </ul>
       </div>
     </div>
@@ -605,7 +605,7 @@ footer a:hover { color: var(--gold-light); }
       <div class="proj-item fade">
         <div class="proj-num">01</div>
         <div class="proj-title">EEG-Based Mental Workload Classification</div>
-        <p class="proj-desc">Full EEG preprocessing and spectral feature extraction pipeline. Implemented NCA and Lasso feature selection to identify spectral biomarkers; applied SHAP explainability to quantify which frequency bands and electrode locations drive classification performance.</p>
+        <p class="proj-desc">Full EEG preprocessing and spectral feature extraction pipeline.  Implemented and compared NCA and Random Forest feature importance to identify spectral biomarkers, then trained and benchmarked machine learning models.</p>
         <div class="proj-footer">
           <div class="proj-tags-row">
             <span class="proj-tag">EEG</span><span class="proj-tag">XAI</span><span class="proj-tag">Mar 2026</span>
@@ -629,7 +629,7 @@ footer a:hover { color: var(--gold-light); }
       <div class="proj-item fade">
         <div class="proj-num">03</div>
         <div class="proj-title">EEG-Based Alzheimer's Disease Classification</div>
-        <p class="proj-desc">Replicated multi-domain EEG feature extraction (spectral, complexity, connectivity) from Zheng et al. (2023). Benchmarked SVM, Random Forest, and LightGBM classifiers to distinguish AD patients from healthy controls.</p>
+        <p class="proj-desc"> Extracted spectral, complexity, and synchronization features from EEG recordings of Alzheimer's and cognitively normal subjects, then trained and benchmarked machine learning models, achieving 70% accuracy. Wrote unit and integration tests across 6 pipeline modules using pytest and tox; implemented a logging module; automated dataset setup with a bash script; and structured the project with dependency management and a reproducible environment configuration.</p>
         <div class="proj-footer">
           <div class="proj-tags-row">
             <span class="proj-tag">Alzheimer's</span><span class="proj-tag">EEG</span><span class="proj-tag">Jan–Feb 2025</span>
@@ -685,7 +685,13 @@ footer a:hover { color: var(--gold-light); }
 
     <div class="fade">
       <div class="edu-row">
-        <div class="edu-period">Sep 2025 – Present</div>
+        <div class="edu-period">Nov 2026 – Present</div>
+        <div>
+          <div class="edu-degree">PhD Bioengineering</div>
+          <div class="edu-uni">Czech Technical University · Prague</div>
+          </div>
+      <div class="edu-row">
+        <div class="edu-period">Sep 2025 – August 2026</div>
         <div>
           <div class="edu-degree">MSc Neuroscience</div>
           <div class="edu-uni">Vrije Universiteit Amsterdam · Netherlands</div>
@@ -733,6 +739,13 @@ footer a:hover { color: var(--gold-light); }
 
       <div class="recog-col fade">
         <h3>Awards &amp; <em>Scholarships</em></h3>
+        <div class="award-item">
+          <div class="award-marker">◆</div>
+           <div>
+             <div class="award-name">Marie Curie Cofund Pictus(EU)</div>
+             <div class="award-sub">1 of 23 worldwide · Jan 2027 – 2030</div>
+              </div>
+           </div>
         <div class="award-item">
           <div class="award-marker">◆</div>
           <div>
